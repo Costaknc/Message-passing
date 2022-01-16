@@ -9,7 +9,6 @@
 #define none Value()
 
 class Object {
-<<<<<<< HEAD
     private:
 
     public:
@@ -31,7 +30,3 @@ class Value {
             value = arg;
         }
 };
-=======
-    
-};
->>>>>>> f016a70a6d4ec5bd0105c42a77c3822d25858473
