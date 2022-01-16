@@ -8,12 +8,12 @@
 #define object Object()
 #define none Value()
 
-class Object {
-    private:
+// class Object {
+//     private:
 
-    public:
+//     public:
         
-};
+// }alpha;
 
 class Value {
     private:
