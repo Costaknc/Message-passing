@@ -29,13 +29,12 @@ inline void expand(){
 
 template <typename T, typename... Types>
 inline void expand(T arg0, Types... rest){
-    std::cout << typeid(arg0).name() << std::endl;
     alpha.map[std::to_string(alpha.map.size())] = Value(arg0);
     return expand(rest...);
 }
 
 template <typename... Types>
-inline Object operator,(Pbject obj, Types... args){
+inline Object operator,(Object obj, Types... args){
     alpha.map.clear();
     expnd(args...);
     return alpha;
