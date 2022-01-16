@@ -8,12 +8,38 @@
 #define object Object()
 #define none Value()
 
-// class Object {
-//     private:
+class Value;
 
-//     public:
+class Object {
+    private:
+
+    public:
+        std::unordered_map<std::string, Value> map;
+
+        inline Object operator[](const Object& obj){
+            //do some stuff n $hit
+            return Object();
+        }
         
-// }alpha;
+}alpha;
+
+inline void expand(){
+
+}
+
+template <typename T, typename... Types>
+inline void expand(T arg0, Types... rest){
+    std::cout << typeid(arg0).name() << std::endl;
+    alpha.map[std::to_string(alpha.map.size())] = Value(arg0);
+    return expand(rest...);
+}
+
+template <typename... Types>
+inline Object operator,(Pbject obj, Types... args){
+    alpha.map.clear();
+    expnd(args...);
+    return alpha;
+}
 
 class Value {
     private:
@@ -25,8 +51,9 @@ class Value {
             type = _NULL;
         }
 
-        template <typename T>;
+        template <typename T>
         inline Value(T arg){
-            value = arg;
+            value = typeid(arg).name();
+            type = value;
         }
 };
