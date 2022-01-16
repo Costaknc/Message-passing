@@ -1,0 +1,6 @@
+all:
+	MessageParsing.o: MessageParsing.h MessageParsing.cpp
+		g++ MessageParsing.h -h MessageParsing.c -c MessageParsing -o
+
+clean:
+	rm -f MessageParsing.o
