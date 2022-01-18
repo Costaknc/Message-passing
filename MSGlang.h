@@ -55,8 +55,6 @@ inline void expand(T arg0, Types... rest) {
     return expand(rest...);
 }
 
-
-
 template <typename... Types>
 inline Object operator,(Object obj, Types... args) {
     alpha._map.clear();
