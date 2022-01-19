@@ -30,7 +30,7 @@ public:
 	inline Value() {
 		type = _NULL;
 	}
-
+// new shit here
 inline Value(int val){
   this->type = INT;
   this->value = val;
