@@ -19,13 +19,13 @@ enum Type {INT, DOUBLE, STRING, BOOL, FUNCTION, OBJECT, _NULL}; // might be usef
 
 // unused for now
 class Value {
-    public:
-        enum Type type; 
-	    std::variant<int, double, std::string, bool, std::function<Value(void)>, Object*> value; // something like a union
+public:
+    enum Type type; 
+    std::variant<int, double, std::string, bool, std::function<Value(void)>, Object*> value; // something like a union
 
-	    inline Value() {
-		    type = _NULL;
-	    }
+    inline Value() {
+        type = _NULL;
+    }
     // new shit here
     inline Value(int val){
         this->type = INT;
