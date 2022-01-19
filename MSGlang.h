@@ -31,29 +31,32 @@ public:
 		type = _NULL;
 	}
 
-	template <typename T>
-	inline Value(T arg) {
-		// if(typeid(arg).name() == "int"){
-		// 	this->type = INT;
-		// 	this->value = (int)arg;
-		// }
-		// else if(typeid(arg).name() == "double"){
-		// 	this->type = DOUBLE;
-		// 	//this->value = arg;
-		// }
-		// else if(typeid(arg).name() == "char const*"){
-		// 	this->type = STRING;
-		// 	//this->value = std::string("xxx");
-		// }
-			
-		//.....
-		
-		// if (arg is type lambda)
-		// 	this->type = LAMBDA;
-		//assign correct type to 'type' variable ( maybe using typeid(arg).name() ) - might be usefull
-		//value = arg;
-	}
-};
+inline Value(int val){
+  this->type = INT;
+  this->value = val;
+}
+inline Value(double val){
+  this->type = DOUBLE;
+  this->value = val;
+}
+inline Value(const char* val){
+  this->type = STRING;
+  this->value = std::string(val);
+}
+inline Value(bool val){
+  this->type = BOOL;
+  this->value = val;
+}
+inline Value(std::function<Value(void)> val){
+  this->type = FUNCTION;
+  this->value = val;
+}
+inline Value(Object val){
+  this->type = OBJECT;
+  Object* _val = new Object();
+  // .... copy map from val to _val
+  this->value = _val;
+}
 
 class Object {
 private:
