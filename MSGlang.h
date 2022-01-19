@@ -17,45 +17,43 @@ class Object;
 
 enum Type {INT, DOUBLE, STRING, BOOL, FUNCTION, OBJECT, _NULL}; // might be usefull
 
-
-
-
 // unused for now
 class Value {
-public:
-	enum Type type; 
-	std::variant<int, double, std::string, bool, std::function<Value(void)>, Object*> value; // something like a union
+    public:
+        enum Type type; 
+	    std::variant<int, double, std::string, bool, std::function<Value(void)>, Object*> value; // something like a union
 
 
-	inline Value() {
-		type = _NULL;
-	}
-// new shit here
-inline Value(int val){
-  this->type = INT;
-  this->value = val;
-}
-inline Value(double val){
-  this->type = DOUBLE;
-  this->value = val;
-}
-inline Value(const char* val){
-  this->type = STRING;
-  this->value = std::string(val);
-}
-inline Value(bool val){
-  this->type = BOOL;
-  this->value = val;
-}
-inline Value(std::function<Value(void)> val){
-  this->type = FUNCTION;
-  this->value = val;
-}
-inline Value(Object val){
-  this->type = OBJECT;
-  Object* _val = new Object();
-  // .... copy map from val to _val
-  this->value = _val;
+	    inline Value() {
+		    type = _NULL;
+	    }
+    // new shit here
+    inline Value(int val){
+        this->type = INT;
+        this->value = val;
+    }
+    inline Value(double val){
+        this->type = DOUBLE;
+        this->value = val;
+    }
+    inline Value(const char* val){
+        this->type = STRING;
+        this->value = std::string(val);
+    }
+    inline Value(bool val){
+        this->type = BOOL;
+        this->value = val;
+    }
+    inline Value(std::function<Value(void)> val){
+        this->type = FUNCTION;
+        this->value = val;
+    }
+    inline Value(Object val){
+        this->type = OBJECT;
+        Object* _val = new Object();
+        // .... copy map from val to _val
+        this->value = _val;
+    }
 }
 
 class Object {
