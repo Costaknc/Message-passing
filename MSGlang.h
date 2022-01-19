@@ -23,7 +23,6 @@ class Value {
         enum Type type; 
 	    std::variant<int, double, std::string, bool, std::function<Value(void)>, Object*> value; // something like a union
 
-
 	    inline Value() {
 		    type = _NULL;
 	    }
