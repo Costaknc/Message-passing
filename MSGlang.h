@@ -3,53 +3,28 @@
 #include <iostream>
 #include <assert.h>
 
+#include "TmpObject.h"
 #include "Object.h"
 #include "Value.h"
 #include "MyBool.h"
 
+
 #define let auto
-#define object Object()
+#define object Object('x')
 #define values alpha,
 #define lambda []() -> Value
 #define none Value()
 #define true MyBool(true)
 #define false MyBool(false)
-//#define Key(X) alpha=
 
 
-Object alpha;
+extern Object alpha;
 
-extern std::string index;
 
-inline Object key(std::string str) {
-    std::cout << " key " << str   << std::endl;
-    index = str;
-	return Object();
+inline TmpObject key(std::string str) {
+	return TmpObject(str);
 }
 
-// inline void expand() {
-// 	//do not remove me :)
-// }
-
-// template <typename T, typename... Types>
-// inline void expand(T arg0, Types... rest) {
-// 	std::cout << typeid(arg0).name() << std::endl;
-// 	alpha.map[std::to_string(alpha.map.size())] = Value(arg0);
-// 	return expand(rest...);
-// }
-
-// template <typename... Types>
-// inline Object operator,(Object obj, Types... args) {
-// 	alpha.map.clear();
-// 	expand(args...);
-// 	return alpha;
-// }
-
-// template <typename T>
-// inline Object operator,(Object obj, T arg){
-// 	alpha.map[std::to_string(alpha.map.size())] = Value(arg);
-// 	return alpha;
-// }
 inline Object operator,(Object obj, int arg){
 	alpha.map[std::to_string(alpha.map.size())] = Value(arg);
 	return alpha;
@@ -75,6 +50,12 @@ inline Object operator,(Object obj, Object arg){
 	return alpha;
 }
 
+inline TmpObject operator,(TmpObject obj1, TmpObject obj2){
+	obj1.map.insert(obj2.map.begin(), obj2.map.end());
+	return obj1;
+}
+
+
 inline std::ostream& operator<<(std::ostream& os, Object obj){
 	os << "object [";
 	for(auto iter = obj.map.begin(); iter != obj.map.end(); ++iter){
@@ -84,11 +65,11 @@ inline std::ostream& operator<<(std::ostream& os, Object obj){
 		case INT:
 			os << iter->second.value.i << ", ";
 			break;
-
+		
 		case DOUBLE:
 			os << iter->second.value.d << ", ";
 			break;
-
+		
 		case STRING:
 			os << "\"" << iter->second.value.str << "\", ";
 			break;
@@ -98,7 +79,7 @@ inline std::ostream& operator<<(std::ostream& os, Object obj){
 				os << "true, ";
 			else
 				os << "false, ";
-
+			
 			break;
 
 		case FUNCTION:

@@ -14,7 +14,7 @@ struct _Value {
     int i;
     double d;
     std::string str;
-    bool b; // --
+    bool b;
     std::function<Value(void)> l;
     Object* o;
     _Value(){}
@@ -24,7 +24,6 @@ struct _Value {
 class Value {
 public:
 	enum Type type; 
-	//std::variant<int, double, std::string, bool, std::function<Value(void)>, Object*> value; // something like a union
     struct _Value value;
 
 	Value();
