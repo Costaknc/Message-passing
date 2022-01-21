@@ -1,4 +1,5 @@
 #include "Object.h"
+#include<iostream>
 
 Object::Object(){
 
@@ -6,12 +7,12 @@ Object::Object(){
 
 
 Object Object::operator=(int i){
-    // do some
+    std::cout << "I do crazy staff\t " << i << std::endl;
     return Object();
 }
 
 Object Object::operator=(double d){
-    // do some
+    std::cout << "I do crazy staff too\n";
     return Object();
 }
 
@@ -26,7 +27,7 @@ Object Object::operator=(MyBool b){
 }
 
 Object Object::operator=(std::function<Value(void)> l){
-    // do some
+    std::cout << "Kosta gamiesai\n";
     return Object();
 }
 
