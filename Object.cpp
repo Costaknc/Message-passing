@@ -1,38 +1,46 @@
 #include "Object.h"
 #include<iostream>
 
+std::string  index;
+Object beta;
+
 Object::Object(){
 
 }
 
 
 Object Object::operator=(int i){
-    std::cout << "I do crazy staff\t " << i << std::endl;
+    std::cout << index <<"\t" << i << std::endl;
+    beta.map[index] = Value(i);
+
     return Object();
 }
 
 Object Object::operator=(double d){
-    std::cout << "I do crazy staff too\n";
+    std::cout << index <<"\t" << d << std::endl;
+    beta.map[index] = Value(d);
     return Object();
 }
 
 Object Object::operator=(const char* str){
-    // do some
+    beta.map[index] = Value(str);
     return Object();
 }
 
 Object Object::operator=(MyBool b){
-    // do some
+    std::cout << index << "\t " << b.val << std::endl;
+    beta.map[index] = Value(b.val);
     return Object();
 }
 
 Object Object::operator=(std::function<Value(void)> l){
-    std::cout << "Kosta gamiesai\n";
+    std::cout << index << "\t " /* << l */ << std::endl;
+    beta.map[index] = Value(l);
     return Object();
 }
 
 Object Object::operator=(Object obj){
-    // do some
+    beta.map[index] = Value(obj);
     return Object();
 }
 

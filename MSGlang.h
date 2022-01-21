@@ -19,10 +19,11 @@
 
 Object alpha;
 
+extern std::string index;
 
 inline Object key(std::string str) {
     std::cout << " key " << str   << std::endl;
-
+    index = str;
 	return Object();
 }
 
