@@ -14,12 +14,15 @@
 #define none Value()
 #define true MyBool(true)
 #define false MyBool(false)
+//#define Key(X) alpha=
+
 
 Object alpha;
 
 
 inline Object key(std::string str) {
-	//std::cout << "aa" << std::endl;
+    std::cout << " key " << str   << std::endl;
+
 	return Object();
 }
 
@@ -75,21 +78,18 @@ inline std::ostream& operator<<(std::ostream& os, Object obj){
 	os << "object [";
 	for(auto iter = obj.map.begin(); iter != obj.map.end(); ++iter){
 		os << "\"" << iter->first << "\" : ";
-		//os << "valueXX, ";
-		std::cout << iter->second.type << std::endl;
-		// std::cout << "!!!!!!!!\n";
 
 		switch (iter->second.type){
 		case INT:
-			os << iter->second.value.i;
+			os << iter->second.value.i << ", ";
 			break;
-		
+
 		case DOUBLE:
-			os << iter->second.value.d;
+			os << iter->second.value.d << ", ";
 			break;
-		
+
 		case STRING:
-			os << "\"" << iter->second.value.str << "\"";
+			os << "\"" << iter->second.value.str << "\", ";
 			break;
 
 		case BOOL:
@@ -97,11 +97,11 @@ inline std::ostream& operator<<(std::ostream& os, Object obj){
 				os << "true, ";
 			else
 				os << "false, ";
-			
+
 			break;
 
 		case FUNCTION:
-			os << "lambda";
+			os << "lambda, ";
 			break;
 
 		case _NULL:
