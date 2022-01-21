@@ -2,7 +2,7 @@
 # Author George Kostomanolakis Dec. 15 2021
 
 # the name of your executable, change it to your liking
-TARGET = executable
+TARGET = MSGlanguage
 
 # launches your target in terminal
 RUN = ./$(TARGET)
