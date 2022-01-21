@@ -16,7 +16,6 @@
 #define none Value()
 #define true MyBool(true)
 #define false MyBool(false)
-//#define obj["X"]  alpha.map[X]
 
 extern Object alpha;
 
