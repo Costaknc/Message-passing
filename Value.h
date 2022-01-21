@@ -23,7 +23,7 @@ struct _Value {
 
 class Value {
 public:
-	enum Type type; 
+	enum Type type;
     struct _Value value;
 
 	Value();
@@ -33,6 +33,15 @@ public:
 	Value(MyBool val);
 	Value(std::function<Value(void)> val);
 	Value(Object val);
+
+
+	void  operator=(int i);
+	void  operator=(double d);
+	void  operator=(MyBool b);
+	void  operator=(const char* str);
+	void  operator=(std::function<Value(void)> l);
+	void  operator=(Object o );
+
 };
 
 

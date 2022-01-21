@@ -10,7 +10,7 @@ Object::Object(char reset_alpha){
 }
 
 Object Object::operator[](const Object& obj) {
-    //incomplete
+
     return obj;
 }
 
@@ -18,4 +18,9 @@ Object Object::operator[](const TmpObject& obj){
     Object new_obj = Object();
     new_obj.map = obj.map;
     return new_obj;
+}
+
+Value& Object::operator[](const char* str){
+
+    return this->map[str];
 }

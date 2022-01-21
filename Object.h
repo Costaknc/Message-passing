@@ -11,7 +11,7 @@ class Object;
 
 class Object {
 private:
-	
+
 public:
 	std::map<std::string, Value> map;
 
@@ -20,6 +20,7 @@ public:
 
 	Object operator[](const Object& obj);
     Object operator[](const TmpObject& obj);
+    Value& operator[](const char* str);
 };
 
 
