@@ -1,4 +1,5 @@
-#pragma once
+#ifndef _MSGLANG_
+#define _MSGLANG_
 
 #include <iostream>
 #include <assert.h>
@@ -99,3 +100,5 @@ inline std::ostream& operator<<(std::ostream& os, Object obj){
 
 	return os;
 }
+
+#endif
