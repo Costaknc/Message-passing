@@ -10,7 +10,7 @@ Object::Object(char reset_alpha){
 }
 
 Object Object::operator[](const Object& obj) {
-    
+    //incomplete
     return obj;
 }
 

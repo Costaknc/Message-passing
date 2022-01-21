@@ -4,12 +4,9 @@ TmpObject::TmpObject(){
 
 }
 
-
 TmpObject::TmpObject(std::string key){
     this->tmp_key = key;
 }
-
-
 
 TmpObject TmpObject::operator=(int i){
     TmpObject new_obj;

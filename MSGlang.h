@@ -17,9 +17,13 @@
 #define none Value()
 #define true MyBool(true)
 #define false MyBool(false)
+#define self alpha
 
 extern Object alpha;
 
+inline Object operator[](std::string arg){
+	return alpha.map[arg];
+}
 
 inline TmpObject key(std::string str) {
 	return TmpObject(str);
