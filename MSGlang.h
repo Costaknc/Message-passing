@@ -17,13 +17,10 @@
 #define none Value()
 #define true MyBool(true)
 #define false MyBool(false)
-#define self alpha
+//#define obj["X"]  alpha.map[X]
 
 extern Object alpha;
 
-inline Object operator[](std::string arg){
-	return alpha.map[arg];
-}
 
 inline TmpObject key(std::string str) {
 	return TmpObject(str);
@@ -59,6 +56,44 @@ inline TmpObject operator,(TmpObject obj1, TmpObject obj2){
 	return obj1;
 }
 
+inline std::ostream& operator<<(std::ostream& os, Value val){
+        switch (val.type){
+        case INT:
+            os << val.value.i;
+            break;
+
+        case DOUBLE:
+            os << val.value.d;
+            break;
+
+        case STRING:
+            os << "\"" << val.value.str << "\"";
+            break;
+
+        case BOOL:
+            if(val.value.b)
+                os << "true";
+            else
+                os << "false";
+            break;
+
+        case FUNCTION:
+            os << "lambda";
+            break;
+
+        case _NULL:
+            os << "null";
+            break;
+
+        default:
+            os << "null";
+            break;
+        }
+
+    return os;
+
+
+}
 
 inline std::ostream& operator<<(std::ostream& os, Object obj){
 	os << "object [";
@@ -69,11 +104,11 @@ inline std::ostream& operator<<(std::ostream& os, Object obj){
 		case INT:
 			os << iter->second.value.i << ", ";
 			break;
-		
+
 		case DOUBLE:
 			os << iter->second.value.d << ", ";
 			break;
-		
+
 		case STRING:
 			os << "\"" << iter->second.value.str << "\", ";
 			break;
@@ -83,7 +118,7 @@ inline std::ostream& operator<<(std::ostream& os, Object obj){
 				os << "true, ";
 			else
 				os << "false, ";
-			
+
 			break;
 
 		case FUNCTION:
