@@ -8,5 +8,4 @@ public:
     MyBool(bool val);
 };
 
-
 #endif

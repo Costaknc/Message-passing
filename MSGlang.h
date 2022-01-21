@@ -9,7 +9,6 @@
 #include "Value.h"
 #include "MyBool.h"
 
-
 #define let auto
 #define object Object('x')
 #define values alpha,
@@ -21,6 +20,10 @@
 
 extern Object alpha;
 
+inline Object* ref(Object arg){
+	Object* ptr = &arg;
+	return ptr;
+}
 
 inline TmpObject key(std::string str) {
 	return TmpObject(str);
@@ -91,8 +94,6 @@ inline std::ostream& operator<<(std::ostream& os, Value val){
         }
 
     return os;
-
-
 }
 
 inline std::ostream& operator<<(std::ostream& os, Object obj){

@@ -37,7 +37,6 @@ Value::Value(Object val){
     this->value.o = _val;
 }
 
-
 void Value::operator=(int x){
   this->type = INT;
   this->value.i = x;

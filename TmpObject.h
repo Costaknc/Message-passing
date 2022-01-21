@@ -9,7 +9,6 @@ class TmpObject;
 #include "Value.h"
 #include "MyBool.h"
 
-
 class TmpObject {
 public:
     std::map<std::string, Value> map;
@@ -17,8 +16,6 @@ public:
 
     TmpObject();
     TmpObject(std::string key);
-
-
 
     TmpObject operator=(int i);
     TmpObject operator=(double d);
@@ -28,9 +25,5 @@ public:
 	TmpObject operator=(Object obj);
 
 };
-
-
-
-
 
 #endif
