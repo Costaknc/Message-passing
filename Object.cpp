@@ -20,9 +20,10 @@ Object Object::operator=(const char* str){
     return Object();
 }
 
-// Object Object::operator=(bool b){
-//
-// }
+Object Object::operator=(MyBool b){
+    // do some
+    return Object();
+}
 
 Object Object::operator=(std::function<Value(void)> l){
     // do some

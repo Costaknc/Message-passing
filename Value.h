@@ -3,6 +3,7 @@
 
 class Value;
 #include "Object.h"
+#include "MyBool.h"
 #include <functional>
 #include <string>
 
@@ -13,7 +14,7 @@ struct _Value {
     int i;
     double d;
     std::string str;
-    bool b;
+    bool b; // --
     std::function<Value(void)> l;
     Object* o;
     _Value(){}
@@ -30,7 +31,7 @@ public:
 	Value(int val);
 	Value(double val);
 	Value(const char* val);
-	Value(bool val);
+	Value(MyBool val);
 	Value(std::function<Value(void)> val);
 	Value(Object val);
 };

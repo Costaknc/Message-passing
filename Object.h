@@ -3,6 +3,7 @@
 
 class Object;
 #include "Value.h"
+#include "MyBool.h"
 #include <map>
 #include <functional>
 class Object {
@@ -15,7 +16,7 @@ public:
     Object operator=(int i);
     Object operator=(double d);
     Object operator=(const char* str);
-    //Object operator=(bool b);
+    Object operator=(MyBool b);
 	Object operator=(std::function<Value(void)> l);
 	Object operator=(Object obj);
 

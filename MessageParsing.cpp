@@ -13,5 +13,7 @@ int main(){
     ];
 
 	std::cout << y << std::endl;
+    std::cout << x << std::endl;
+    //std::cout << z << std::endl; not ready yet
 }
 

@@ -20,9 +20,9 @@ Value::Value(const char* val){
     this->value.str = std::string(val);
 }
 
-Value::Value(bool val){
+Value::Value(MyBool val){
     this->type = BOOL;
-    this->value.b = val;
+    this->value.b = val.val;
 }
 
 Value::Value(std::function<Value(void)> val){

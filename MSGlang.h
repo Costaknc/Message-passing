@@ -5,19 +5,21 @@
 
 #include "Object.h"
 #include "Value.h"
+#include "MyBool.h"
 
 #define let auto
 #define object Object()
 #define values alpha,
 #define lambda []() -> Value
 #define none Value()
-
+#define true MyBool(true)
+#define false MyBool(false)
 
 Object alpha;
 
 
 inline Object key(std::string str) {
-	std::cout << "aa" << std::endl;
+	//std::cout << "aa" << std::endl;
 	return Object();
 }
 
@@ -56,10 +58,10 @@ inline Object operator,(Object obj, const char* arg){
 	alpha.map[std::to_string(alpha.map.size())] = Value(arg);
 	return alpha;
 }
-// inline Object operator,(Object obj, bool arg){
-// 	alpha.map[std::to_string(alpha.map.size())] = Value(arg);
-// 	return alpha;
-// }
+inline Object operator,(Object obj, MyBool arg){
+	alpha.map[std::to_string(alpha.map.size())] = Value(arg);
+	return alpha;
+}
 inline Object operator,(Object obj, std::function<Value(void)> arg){
 	alpha.map[std::to_string(alpha.map.size())] = Value(arg);
 	return alpha;
@@ -75,7 +77,7 @@ inline std::ostream& operator<<(std::ostream& os, Object obj){
 		os << "\"" << iter->first << "\" : ";
 		//os << "valueXX, ";
 		std::cout << iter->second.type << std::endl;
-		std::cout << "!!!!!!!!\n";
+		// std::cout << "!!!!!!!!\n";
 
 		switch (iter->second.type){
 		case INT:
@@ -91,7 +93,11 @@ inline std::ostream& operator<<(std::ostream& os, Object obj){
 			break;
 
 		case BOOL:
-			os << iter->second.value.b;
+			if(iter->second.value.b)
+				os << "true, ";
+			else
+				os << "false, ";
+			
 			break;
 
 		case FUNCTION:
