@@ -18,7 +18,6 @@ int main(){
     std::cout << z << std::endl;
     std::cout << yy << std::endl;
 
-    y[1] = 5;
-    std::cout << y << std::endl;
+    std::cout << y[2] << std::endl;
 }
 

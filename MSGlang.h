@@ -18,7 +18,6 @@
 #define true MyBool(true)
 #define false MyBool(false)
 
-
 extern Object alpha;
 
 
